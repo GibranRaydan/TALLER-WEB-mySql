@@ -26,7 +26,7 @@ public class DbUtil {
 			   }
 
 			  try {
-			    CONEXION = DriverManager.getConnection("jdbc:mysql://localhost:3306/Taller2MySQL","root", "root");
+			    CONEXION = DriverManager.getConnection("jdbc:mysql://localhost:3306/Taller2MySQL","root", "");
      			  } catch (SQLException e) {
 			     throw new SQLException(e);
 			  }
