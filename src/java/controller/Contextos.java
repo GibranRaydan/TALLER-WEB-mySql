@@ -5,6 +5,8 @@
  */
 package controller;
 
+import model.ContextoNavegacion;
+import dao.ContextoNavegacionDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -16,16 +18,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Tabla;
-import model.UnidadAbstractaInformacion;
-import dao.UnidadAbstractaInformacionDAO;
 
 /**
  *
  * @author Gibran
  */
-public class Unidades extends HttpServlet {
-
-    /**
+public class Contextos extends HttpServlet {
+ /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -64,16 +63,16 @@ public class Unidades extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          try {
-            UnidadAbstractaInformacionDAO obj = new UnidadAbstractaInformacionDAO();
+             ContextoNavegacionDAO obj = new ContextoNavegacionDAO();
             
-            ArrayList<UnidadAbstractaInformacion> lista = (ArrayList<UnidadAbstractaInformacion>) obj.getAllUnidad();
+            ArrayList<ContextoNavegacion> lista = (ArrayList<ContextoNavegacion>) obj.getAllContexto();
             
-            request.setAttribute("listaUnidades", lista);
+            request.setAttribute("listaContextos", lista);
             
-           request.getRequestDispatcher("unidad.jsp").forward(request, response);
+           request.getRequestDispatcher("Contexto.jsp").forward(request, response);
 
         } catch (SQLException ex) {
-            Logger.getLogger(Tablas.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Contextos.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -82,20 +81,21 @@ public class Unidades extends HttpServlet {
             throws ServletException, IOException {
         
        try {
-             int id_contexto = Integer.parseInt( request.getParameter("idContexto"));
-             int id_tabla = Integer.parseInt(request.getParameter("idTabla"));
+            int id = Integer.parseInt(request.getParameter("id"));
+            String link = (String) request.getParameter("link");
+             int id_modelo = Integer.parseInt(request.getParameter("id_modelo"));
              
              
-            UnidadAbstractaInformacionDAO dao = new UnidadAbstractaInformacionDAO();
-            UnidadAbstractaInformacion unidad = new UnidadAbstractaInformacion(id_tabla, id_contexto);
+            ContextoNavegacionDAO dao = new ContextoNavegacionDAO();
+            ContextoNavegacion contexto = new ContextoNavegacion(link,id_modelo);
             
-            dao.addUnidad(unidad);
+            dao.addContexto(contexto);
            
             
-            response.sendRedirect("Unidades");
+            response.sendRedirect("Contextos");
             
         } catch (SQLException ex) {
-            Logger.getLogger(Unidades.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Contextos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

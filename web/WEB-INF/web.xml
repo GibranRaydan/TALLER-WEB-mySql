@@ -53,6 +53,10 @@
         <servlet-name>Unidades</servlet-name>
         <servlet-class>controller.Unidades</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Contextos</servlet-name>
+        <servlet-class>controller.Contextos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteController</servlet-name>
         <url-pattern>/ClienteController</url-pattern>
@@ -108,6 +112,10 @@
     <servlet-mapping>
         <servlet-name>Unidades</servlet-name>
         <url-pattern>/Unidades</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Contextos</servlet-name>
+        <url-pattern>/Contextos</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

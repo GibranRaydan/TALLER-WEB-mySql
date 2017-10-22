@@ -54,7 +54,7 @@ public class UnidadAbstractaInformacionDAO {
                     unidad = new ArrayList<UnidadAbstractaInformacion>();
                 }
                 UnidadAbstractaInformacion registro = new UnidadAbstractaInformacion(id_contexto,id_tabla);
-                id = rs.getInt("id_tabla");
+                id = rs.getInt("id");
                 registro.setId_unidad(id);
 
                 id_contexto = rs.getInt("id_contexto");
