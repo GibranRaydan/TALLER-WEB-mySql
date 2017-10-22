@@ -49,6 +49,10 @@
         <servlet-name>BorrarColumnas</servlet-name>
         <servlet-class>controller.BorrarColumnas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Unidades</servlet-name>
+        <servlet-class>controller.Unidades</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteController</servlet-name>
         <url-pattern>/ClienteController</url-pattern>
@@ -100,6 +104,10 @@
     <servlet-mapping>
         <servlet-name>BorrarColumnas</servlet-name>
         <url-pattern>/BorrarColumnas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Unidades</servlet-name>
+        <url-pattern>/Unidades</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
